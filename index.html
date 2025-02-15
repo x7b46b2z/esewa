@@ -26,6 +26,16 @@
         .qr-image {
             max-width: 100%;
             height: auto;
+            pointer-events: none;
+            user-drag: none;
+            -webkit-user-drag: none;
+        }
+        img {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         @media (max-width: 600px) {
             .container {
@@ -41,7 +51,15 @@
 </head>
 <body>
     <div class="container">
-        <img src="eSewa_My_QR_9749327523_1738826188416_2025-02-06_13_01_28.jpg" alt="eSewa QR Code" class="qr-image">
+        <img src="eSewa_My_QR_9749327523_1738826188416_2025-02-06_13_01_28.jpg" alt="eSewa QR Code" class="qr-image" oncontextmenu="return false;">
+        
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.qr-image').addEventListener('wheel', function(event) {
+                event.preventDefault();
+            });
+        });
+    </script>
 </body>
 </html>
